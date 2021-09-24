@@ -1,0 +1,12 @@
+{
+  "name": "contenedor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "contenedorTest.js",
+  "scripts": {
+    "start": "node contenedorTest.js"
+  },
+  "keywords": [],
+  "author": "Nestor Cubilla",
+  "license": "ISC"
+}
