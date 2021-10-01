@@ -1,0 +1,15 @@
+{
+  "name": "004-api_restful",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "keywords": [],
+  "author": "Nestor Cubilla",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
