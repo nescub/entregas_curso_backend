@@ -1,0 +1,27 @@
+<h1 style="color:blue;">Ingrese producto</h1>
+<br>
+
+<form action="/productos" method="post">
+
+    <div class="form-group">
+        <label for="title"><b>Nombre</b></label>
+        <input id="title" class="form-control" type="text" name="title">
+    </div>
+
+    <div class="form-group">
+        <label for="price"><b>Precio</b></label>
+        <input id="price" class="form-control" type="text" name="price">
+    </div>
+
+    <div class="form-group">
+        <label for="thumbnail"><b>URL Foto</b></label>
+        <input id="thumbnail" class="form-control" type="text" name="thumbnail">
+    </div>
+
+    <button class="btn btn-success mt-3 mb-5">Cargar</button>
+</form>
+
+<form action="/productos" method="get">            
+    <button class="btn btn-success mt-3 mb-5">Lista de Productos</button>
+</form>
+<br>
