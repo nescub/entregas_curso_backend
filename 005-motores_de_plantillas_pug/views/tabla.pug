@@ -1,0 +1,32 @@
+extends layout
+
+block paginaProductos
+    h2(style="color:crimson;") Productos Cargados
+
+    - const hayProductos = productos.length
+    
+    if hayProductos
+        div(class="table-responsive")
+            table(class="table table-dark")
+                tr(style="color: yellow;")
+                    th Id
+                    th Nombre
+                    th Precio
+                    th Foto
+                
+                each producto in productos
+                    tr
+                        td= producto.id
+                        td= producto.title
+                        td= producto.price
+                        td
+                            img(src= producto.thumbnail width="30" height="30")
+    else
+        h3(class="alert alert-danger") No hay productos
+        
+    br 
+
+    form(action="/" method="get")
+        button(class="btn btn-success mt-3 mb-5") Cargar Producto
+    
+    br

@@ -1,0 +1,28 @@
+extends layout
+
+block paginaProductos
+    h1(style="color:blue;") Ingrese producto
+    br
+
+    form(action="/productos" method="post")
+        div(class="form-group")
+            label(for="title")
+                b Nombre
+            input(id="title" class="form-control" type="text" name="title")
+        
+        div(class="form-group")
+            label(for="price")
+                b Precio
+            input(id="price" class="form-control" type="text" name="price")
+
+        div(class="form-group")
+            label(for="thumbnail")
+                b URL Foto
+            input(id="thumbnail" class="form-control" type="text" name="thumbnail")
+        
+        button(class="btn btn-success mt-3 mb-5") Cargar
+    
+    form(action="/productos" method="get")
+        button(class="btn btn-success mt-3 mb-5") Lista de Productos
+    
+    br
