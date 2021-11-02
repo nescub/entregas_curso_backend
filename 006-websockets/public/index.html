@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"
+    integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg=="
+    crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+  </head>
+
+  <body>
+    <!-- ########################## INICIO PRODUCTOS ########################## -->
+
+    <div class="container mt-3">
+      <div class="jumbotron">
+        <h1 style="color:blue;">Ingrese producto</h1>
+        <br>
+
+        <!--
+          En firefox no funciona / En Chrone hace que se recargue la pagina y se pierde la conexxion con el websocket
+          <form onsubmit="return agregarProducto(this)">  
+          Solucion: boton Cargar con tag <a> mas abajo
+        -->
+        <div class="form-group">
+            <label for="title"><b>Nombre</b></label>
+            <input id="title" class="form-control" type="text" name="title">
+        </div>
+    
+        <div class="form-group">
+            <label for="price"><b>Precio</b></label>
+            <input id="price" class="form-control" type="text" name="price">
+        </div>
+    
+        <div class="form-group">
+            <label for="thumbnail"><b>URL Foto</b></label>
+            <input id="thumbnail" class="form-control" type="text" name="thumbnail">
+        </div>
+            <!-- <input class="btn btn-success mt-3 mb-5" type="submit" value="Cargar"> 
+        </form>
+        NO funciona, lerr comentario arriba -->
+
+        <a class="btn btn-success mt-3 mb-5" href='javascript:;' onclick="agregarProducto();" role="button">Cargar</a>
+
+        <div id='listaProductos'></div> <!-- para inyectar la lista de productos desde el js/main.js -->
+      </div>
+    </div>
+
+    <!-- ########################## FIN PRODUCTOS ########################## -->
+
+    <!-- ########################## INICIO MENSAJES ########################## -->
+
+    <div class="container mt-3">
+      <div class="jumbotron">
+        <h1 style="color:blue;">Centro de Mensajes</h1>
+        <br>
+
+        <div class="form-group">
+            <input id="message_dir_email" class="form-control" type="text" name="message_dir_email" placeholder="Ingresá tu dirección de email">
+        </div>
+        <hr>
+
+        <div id='listaMensajes'></div>
+        <br>
+
+        <div class="form-group">
+            <input id="message_text" class="form-control" type="text" name="message_text" placeholder="Ingresá un mensaje">
+            <a class="btn btn-success mt-3 mb-5" href='javascript:;' onclick="enviarMensaje();" role="button">Enviar</a>
+        </div>
+
+      </div>
+    </div>
+    <br>
+
+    <!-- ########################## FIN MENSAJES ########################## -->
+
+  </body>
+
+</html>
