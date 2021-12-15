@@ -1,0 +1,20 @@
+{
+  "name": "006-websockets",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/server.js",
+  "scripts": {
+    "start":"node .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^4.3.1",
+    "knex": "^0.95.14",
+    "mysql": "^2.18.1",
+    "sqlite3": "^5.0.2"
+  }
+}

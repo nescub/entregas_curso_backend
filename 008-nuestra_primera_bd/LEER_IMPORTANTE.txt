@@ -1,0 +1,98 @@
+PARA DEPLOYEAR y LANZAR EL SERVICIO,  ejecutar los siguientes pasos:
+
+1- CREAR base MySQL ecommerce - DESDE cliente consola mysql:
+
+    1.1- Abro consola e ingreso la pass del usuario root -> 321mysql
+        
+        Enter password: ********
+        ...
+
+    1.2- Veo que bases existen
+
+        mysql> show databases;
+        +--------------------+
+        | Database           |
+        +--------------------+
+        | information_schema |
+        | mibase             |
+        | mysql              |
+        | performance_schema |
+        | sakila             |
+        | sys                |
+        | world              |
+        +--------------------+
+        7 rows in set (0.00 sec)
+
+    1.3- Creo la base ecommerce
+
+        mysql> create database ecommerce;
+        Query OK, 1 row affected (0.01 sec)
+
+        mysql> show databases;
+        +--------------------+
+        | Database           |
+        +--------------------+
+        | ecommerce          |
+        | information_schema |
+        | mibase             |
+        | mysql              |
+        | performance_schema |
+        | sakila             |
+        | sys                |
+        | world              |
+        +--------------------+
+        8 rows in set (0.01 sec)
+
+    1.4- Veo que usuarios tienen permisos para mi base ecommerce
+
+        mysql> select user,host,insert_priv,update_priv,delete_priv from mysql.db where db='ecommerce';
+        Empty set (0.00 sec)
+
+    1.5- Le doy acceso a la base ecommerce al usuario nestor
+
+        mysql> GRANT ALL PRIVILEGES ON ecommerce.* TO nestor@localhost;
+        Query OK, 0 rows affected (0.00 sec)
+
+        mysql> select user,host,insert_priv,update_priv,delete_priv from mysql.db where db='ecommerce';
+        +--------+-----------+-------------+-------------+-------------+
+        | user   | host      | insert_priv | update_priv | delete_priv |
+        +--------+-----------+-------------+-------------+-------------+
+        | nestor | localhost | Y           | Y           | Y           |
+        +--------+-----------+-------------+-------------+-------------+
+        1 row in set (0.00 sec)
+
+2- Instalar dependencias - DESDE consola (PowerShell):
+
+    2.1- Pararse en directorio: "008-nuestra_primera_bd"
+
+    2.2- Ejecutar "npm install"
+
+3- Crear tabla products en base MySQL ecommerce - DESDE consola (PowerShell):
+
+    3.1- Pararse en directorio: "008-nuestra_primera_bd"
+
+    3.2- Ejecutar "node .\src\create_products_table.js"
+
+    Ejemplo:
+
+        PS C:\Nestor\CURSO_Desarrollo_Backend\REPO_ENTREGABLES\008-nuestra_primera_bd> node .\src\create_products_table.js
+        tabla products creada
+        conexion destruida
+
+4- Crear base SQLite3 con tabla messages - DESDE consola (PowerShell):
+
+    4.1- Pararse en directorio: "008-nuestra_primera_bd"
+
+    4.2- Ejecutar "node .\src\create_messages_table.js"
+
+    Ejemplo:
+
+        PS C:\Nestor\CURSO_Desarrollo_Backend\REPO_ENTREGABLES\008-nuestra_primera_bd> node .\src\create_messages_table.js
+        tabla messages creada
+        conexion destruida
+
+5- Levantar Server - DESDE consola (PowerShell):
+
+    5.1- Pararse en directorio: "008-nuestra_primera_bd"
+
+    5.2- Ejecutar "npm start"
