@@ -1,0 +1,536 @@
+Levanto la base en una consola y me logueo en otra consola:
+
+    PS C:\Users\u571382> mongod --dbpath "C:\Nestor\CURSO_Desarrollo_Backend\mongodb\base" --auth
+    ...
+
+    PS C:\Users\u571382> mongosh -u root -p 1234
+    ...
+
+Resuelvo enunciado:
+
+    test> use ecommerce
+    switched to db ecommerce
+
+    ecommerce> db.createCollection('mensajes')
+    { ok: 1 }
+
+    ecommerce> db.createCollection('productos')
+    { ok: 1 }
+
+    ecommerce> show collections
+    mensajes
+    productos
+    
+1) y 2)
+    ecommerce> db.mensajes.insertMany([
+    ... { author: 'nestor@gmail.com', dateTime: new Date().toLocaleString(), text: 'Buenas tardes, ¿como va?', id: 1 },
+    ... { author: 'jose@yahoo.com', dateTime: new Date().toLocaleString(), text: 'Buenas tardes, todo bien y ¿vos?', id: 2 },
+    ... { author: 'nestor@gmail.com', dateTime: new Date().toLocaleString(), text: 'todo bien tambien', id: 3 },
+    ... { author: 'carlos@hotmail.com', dateTime: new Date().toLocaleString(), text: 'Hola gente!', id: 4 },
+    ... { author: 'nestor@gmail.com', dateTime: new Date().toLocaleString(), text: 'Hola Carlos ¿como estas?', id: 5 },
+    ... { author: 'jose@yahoo.com', dateTime: new Date().toLocaleString(), text: '¿Qué haces Carlos?', id: 6 },
+    ... { author: 'carlos@hotmail.com', dateTime: new Date().toLocaleString(), text: 'Todo en orden y ¿ustedes?', id: 7 },
+    ... { author: 'nestor@gmail.com', dateTime: new Date().toLocaleString(), text: 'Bien bien por aca', id: 8 },
+    ... { author: 'jose@yahoo.com', dateTime: new Date().toLocaleString(), text: 'Mejor imposible', id: 9 },
+    ... { author: 'carlos@hotmail.com', dateTime: new Date().toLocaleString(), text: 'Excelente!', id: 10 }])
+    {
+    acknowledged: true,
+    insertedIds: {
+        '0': ObjectId("61ba60d75ef5ad85d9b18cc4"),
+        '1': ObjectId("61ba60d75ef5ad85d9b18cc5"),
+        '2': ObjectId("61ba60d75ef5ad85d9b18cc6"),
+        '3': ObjectId("61ba60d75ef5ad85d9b18cc7"),
+        '4': ObjectId("61ba60d75ef5ad85d9b18cc8"),
+        '5': ObjectId("61ba60d75ef5ad85d9b18cc9"),
+        '6': ObjectId("61ba60d75ef5ad85d9b18cca"),
+        '7': ObjectId("61ba60d75ef5ad85d9b18ccb"),
+        '8': ObjectId("61ba60d75ef5ad85d9b18ccc"),
+        '9': ObjectId("61ba60d75ef5ad85d9b18ccd")
+    }
+    }
+
+    ecommerce> db.productos.insertMany([
+    ... { title: 'Escuadra tipo 1', price: 120, thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png', id: 1 },
+    ... { title: 'Escuadra tipo 2', price: 580, thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png', id: 2 },
+    ... { title: 'Escuadra tipo 3', price: 900, thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png', id: 3 },
+    ... { title: 'Escuadra tipo 4', price: 1280, thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png', id: 4 },
+    ... { title: 'Globo Terraqueo tipo 1', price: 1700, thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-256.png', id: 5 },
+    ... { title: 'Globo Terraqueo tipo 2', price: 2300, thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-256.png', id: 6 },
+    ... { title: 'Globo Terraqueo tipo 3', price: 2860, thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-256.png', id: 7 },
+    ... { title: 'Calculadora tipo 1', price: 3350, thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png', id: 8 },
+    ... { title: 'Calculadora tipo 2', price: 4320, thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png', id: 9 },
+    ... { title: 'Calculadora tipo 3', price: 4990, thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png', id: 10 }])
+    {
+    acknowledged: true,
+    insertedIds: {
+        '0': ObjectId("61ba62de5ef5ad85d9b18cce"),
+        '1': ObjectId("61ba62de5ef5ad85d9b18ccf"),
+        '2': ObjectId("61ba62de5ef5ad85d9b18cd0"),
+        '3': ObjectId("61ba62de5ef5ad85d9b18cd1"),
+        '4': ObjectId("61ba62de5ef5ad85d9b18cd2"),
+        '5': ObjectId("61ba62de5ef5ad85d9b18cd3"),
+        '6': ObjectId("61ba62de5ef5ad85d9b18cd4"),
+        '7': ObjectId("61ba62de5ef5ad85d9b18cd5"),
+        '8': ObjectId("61ba62de5ef5ad85d9b18cd6"),
+        '9': ObjectId("61ba62de5ef5ad85d9b18cd7")
+    }
+    }
+
+3)
+
+    ecommerce> db.mensajes.find()
+    [
+    {
+        _id: ObjectId("61ba60d75ef5ad85d9b18cc4"),
+        author: 'nestor@gmail.com',
+        dateTime: '15/12/2021 18:40:39',
+        text: 'Buenas tardes, ¿como va?',
+        id: 1
+    },
+    {
+        _id: ObjectId("61ba60d75ef5ad85d9b18cc5"),
+        author: 'jose@yahoo.com',
+        dateTime: '15/12/2021 18:40:39',
+        text: 'Buenas tardes, todo bien y ¿vos?',
+        id: 2
+    },
+    {
+        _id: ObjectId("61ba60d75ef5ad85d9b18cc6"),
+        author: 'nestor@gmail.com',
+        dateTime: '15/12/2021 18:40:39',
+        text: 'todo bien tambien',
+        id: 3
+    },
+    {
+        _id: ObjectId("61ba60d75ef5ad85d9b18cc7"),
+        author: 'carlos@hotmail.com',
+        dateTime: '15/12/2021 18:40:39',
+        text: 'Hola gente!',
+        id: 4
+    },
+    {
+        _id: ObjectId("61ba60d75ef5ad85d9b18cc8"),
+        author: 'nestor@gmail.com',
+        dateTime: '15/12/2021 18:40:39',
+        text: 'Hola Carlos ¿como estas?',
+        id: 5
+    },
+    {
+        _id: ObjectId("61ba60d75ef5ad85d9b18cc9"),
+        author: 'jose@yahoo.com',
+        dateTime: '15/12/2021 18:40:39',
+        text: '¿Qué haces Carlos?',
+        id: 6
+    },
+    {
+        _id: ObjectId("61ba60d75ef5ad85d9b18cca"),
+        author: 'carlos@hotmail.com',
+        dateTime: '15/12/2021 18:40:39',
+        text: 'Todo en orden y ¿ustedes?',
+        id: 7
+    },
+    {
+        _id: ObjectId("61ba60d75ef5ad85d9b18ccb"),
+        author: 'nestor@gmail.com',
+        dateTime: '15/12/2021 18:40:39',
+        text: 'Bien bien por aca',
+        id: 8
+    },
+    {
+        _id: ObjectId("61ba60d75ef5ad85d9b18ccc"),
+        author: 'jose@yahoo.com',
+        dateTime: '15/12/2021 18:40:39',
+        text: 'Mejor imposible',
+        id: 9
+    },
+    {
+        _id: ObjectId("61ba60d75ef5ad85d9b18ccd"),
+        author: 'carlos@hotmail.com',
+        dateTime: '15/12/2021 18:40:39',
+        text: 'Excelente!',
+        id: 10
+    }
+    ]
+
+
+    ecommerce> db.productos.find()
+    [
+    {
+        _id: ObjectId("61ba62de5ef5ad85d9b18cce"),
+        title: 'Escuadra tipo 1',
+        price: 120,
+        thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png',
+        id: 1
+    },
+    {
+        _id: ObjectId("61ba62de5ef5ad85d9b18ccf"),
+        title: 'Escuadra tipo 2',
+        price: 580,
+        thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png',
+        id: 2
+    },
+    {
+        _id: ObjectId("61ba62de5ef5ad85d9b18cd0"),
+        title: 'Escuadra tipo 3',
+        price: 900,
+        thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png',
+        id: 3
+    },
+    {
+        _id: ObjectId("61ba62de5ef5ad85d9b18cd1"),
+        title: 'Escuadra tipo 4',
+        price: 1280,
+        thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png',
+        id: 4
+    },
+    {
+        _id: ObjectId("61ba62de5ef5ad85d9b18cd2"),
+        title: 'Globo Terraqueo tipo 1',
+        price: 1700,
+        thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-256.png',
+        id: 5
+    },
+    {
+        _id: ObjectId("61ba62de5ef5ad85d9b18cd3"),
+        title: 'Globo Terraqueo tipo 2',
+        price: 2300,
+        thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-256.png',
+        id: 6
+    },
+    {
+        _id: ObjectId("61ba62de5ef5ad85d9b18cd4"),
+        title: 'Globo Terraqueo tipo 3',
+        price: 2860,
+        thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-256.png',
+        id: 7
+    },
+    {
+        _id: ObjectId("61ba62de5ef5ad85d9b18cd5"),
+        title: 'Calculadora tipo 1',
+        price: 3350,
+        thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png',
+        id: 8
+    },
+    {
+        _id: ObjectId("61ba62de5ef5ad85d9b18cd6"),
+        title: 'Calculadora tipo 2',
+        price: 4320,
+        thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png',
+        id: 9
+    },
+    {
+        _id: ObjectId("61ba62de5ef5ad85d9b18cd7"),
+        title: 'Calculadora tipo 3',
+        price: 4990,
+        thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png',
+        id: 10
+    }
+    ]
+
+4)
+    ecommerce> db.mensajes.countDocuments()
+    10
+    ecommerce> db.productos.countDocuments()
+    10
+
+5)
+    5.a)
+        ecommerce>  db.productos.insertOne({ title: 'Escuadra tipo X', price: 180, thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png', id: 11 })
+        {
+        acknowledged: true,
+        insertedId: ObjectId("61ba64d95ef5ad85d9b18cd8")
+        }
+    
+    5.b)
+        5.b.i)
+            ecommerce> db.productos.find({price: {$lt: 1000}})
+            [
+            {
+                _id: ObjectId("61ba62de5ef5ad85d9b18cce"),
+                title: 'Escuadra tipo 1',
+                price: 120,
+                thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png',
+                id: 1
+            },
+            {
+                _id: ObjectId("61ba62de5ef5ad85d9b18ccf"),
+                title: 'Escuadra tipo 2',
+                price: 580,
+                thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png',
+                id: 2
+            },
+            {
+                _id: ObjectId("61ba62de5ef5ad85d9b18cd0"),
+                title: 'Escuadra tipo 3',
+                price: 900,
+                thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png',
+                id: 3
+            },
+            {
+                _id: ObjectId("61ba64d95ef5ad85d9b18cd8"),
+                title: 'Escuadra tipo X',
+                price: 180,
+                thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png',
+                id: 11
+            }
+            ]
+
+        5.b.ii)
+            ecommerce> db.productos.find({price: {$gte: 1000, $lte: 3000}})
+            [
+            {
+                _id: ObjectId("61ba62de5ef5ad85d9b18cd1"),
+                title: 'Escuadra tipo 4',
+                price: 1280,
+                thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png',
+                id: 4
+            },
+            {
+                _id: ObjectId("61ba62de5ef5ad85d9b18cd2"),
+                title: 'Globo Terraqueo tipo 1',
+                price: 1700,
+                thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-256.png',
+                id: 5
+            },
+            {
+                _id: ObjectId("61ba62de5ef5ad85d9b18cd3"),
+                title: 'Globo Terraqueo tipo 2',
+                price: 2300,
+                thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-256.png',
+                id: 6
+            },
+            {
+                _id: ObjectId("61ba62de5ef5ad85d9b18cd4"),
+                title: 'Globo Terraqueo tipo 3',
+                price: 2860,
+                thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-256.png',
+                id: 7
+            }
+            ]
+
+        5.b.iii)
+            ecommerce> db.productos.find({price: {$gt: 3000}})
+            [
+            {
+                _id: ObjectId("61ba62de5ef5ad85d9b18cd5"),
+                title: 'Calculadora tipo 1',
+                price: 3350,
+                thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png',
+                id: 8
+            },
+            {
+                _id: ObjectId("61ba62de5ef5ad85d9b18cd6"),
+                title: 'Calculadora tipo 2',
+                price: 4320,
+                thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png',
+                id: 9
+            },
+            {
+                _id: ObjectId("61ba62de5ef5ad85d9b18cd7"),
+                title: 'Calculadora tipo 3',
+                price: 4990,
+                thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png',
+                id: 10
+            }
+            ]
+
+        5.b.iV)
+            ecommerce> db.productos.find({},{"title":1, "_id":0}).sort({price: 1}).limit(1).skip(2)
+            [ { title: 'Escuadra tipo 2' } ]
+    
+    5.c) 
+        ecommerce> db.productos.updateMany({}, {$set: {stock: 100}})
+        {
+        acknowledged: true,
+        insertedId: null,
+        matchedCount: 11,
+        modifiedCount: 11,
+        upsertedCount: 0
+        }
+    
+    5.d)
+        ecommerce> db.productos.updateMany({price: {$gt: 4000}}, {$set: {stock: 0}})
+        {
+        acknowledged: true,
+        insertedId: null,
+        matchedCount: 2,
+        modifiedCount: 2,
+        upsertedCount: 0
+        }
+    5.e)
+        ecommerce> db.productos.deleteMany({price: {$lt: 1000}})
+        { acknowledged: true, deletedCount: 4 }
+
+    CONTROLO la coleccion productos despues de ejecutar 5.c, 5.d y 5.e:
+
+        ecommerce> db.productos.find().sort({price: -1})
+        [
+        {
+            _id: ObjectId("61ba62de5ef5ad85d9b18cd7"),
+            title: 'Calculadora tipo 3',
+            price: 4990,
+            thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png',
+            id: 10,
+            stock: 0
+        },
+        {
+            _id: ObjectId("61ba62de5ef5ad85d9b18cd6"),
+            title: 'Calculadora tipo 2',
+            price: 4320,
+            thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png',
+            id: 9,
+            stock: 0
+        },
+        {
+            _id: ObjectId("61ba62de5ef5ad85d9b18cd5"),
+            title: 'Calculadora tipo 1',
+            price: 3350,
+            thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png',
+            id: 8,
+            stock: 100
+        },
+        {
+            _id: ObjectId("61ba62de5ef5ad85d9b18cd4"),
+            title: 'Globo Terraqueo tipo 3',
+            price: 2860,
+            thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-256.png',
+            id: 7,
+            stock: 100
+        },
+        {
+            _id: ObjectId("61ba62de5ef5ad85d9b18cd3"),
+            title: 'Globo Terraqueo tipo 2',
+            price: 2300,
+            thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-256.png',
+            id: 6,
+            stock: 100
+        },
+        {
+            _id: ObjectId("61ba62de5ef5ad85d9b18cd2"),
+            title: 'Globo Terraqueo tipo 1',
+            price: 1700,
+            thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-256.png',
+            id: 5,
+            stock: 100
+        },
+        {
+            _id: ObjectId("61ba62de5ef5ad85d9b18cd1"),
+            title: 'Escuadra tipo 4',
+            price: 1280,
+            thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png',
+            id: 4,
+            stock: 100
+        }
+    ]
+
+6)
+    PRIMERO: Salgo del mongosh (porque estoy logueando con user: root pass: 1234) y bajo la base (porque esto en modo --auth)
+
+    SEGUNDO: Levanto la base en una consola en modo root y abro mongosh en otra consola consola:
+
+            PS C:\Users\u571382> mongod --dbpath "C:\Nestor\CURSO_Desarrollo_Backend\mongodb\base"
+            ...
+
+            PS C:\Users\u571382> mongosh
+            ...
+
+    TERCERO: Creo el usuario pepe con clave asd456
+
+        test> use admin
+        switched to db admin
+
+        admin> db.createUser(
+        ...     {
+        .....         user: "pepe",
+        .....         pwd: "asd456",
+        .....         roles: [
+        .....             { role: "read", db: "ecommerce" }
+        .....         ]
+        .....     }
+        ... )
+        { ok: 1 }
+
+    CUARTO: Salgo del mongosh y bajo la base
+
+    QUINTO: Levanto la base en una consola y me logueo en otra consola:
+
+        PS C:\Users\u571382> mongod --dbpath "C:\Nestor\CURSO_Desarrollo_Backend\mongodb\base" --auth
+        ...
+
+        PS C:\Users\u571382> mongosh -u pepe -p asd456
+        ...
+
+    SEXTO: Pruebo permisos
+
+        test> show dbs
+        ecommerce  123 kB
+
+        test> use ecommerce
+        switched to db ecommerce
+
+        ecommerce> show collections
+        mensajes
+        productos
+
+        ecommerce> db.productos.find()
+        [
+        {
+            _id: ObjectId("61ba62de5ef5ad85d9b18cd1"),
+            title: 'Escuadra tipo 4',
+            price: 1280,
+            thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png',
+            id: 4,
+            stock: 100
+        },
+        {
+            _id: ObjectId("61ba62de5ef5ad85d9b18cd2"),
+            title: 'Globo Terraqueo tipo 1',
+            price: 1700,
+            thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-256.png',
+            id: 5,
+            stock: 100
+        },
+        {
+            _id: ObjectId("61ba62de5ef5ad85d9b18cd3"),
+            title: 'Globo Terraqueo tipo 2',
+            price: 2300,
+            thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-256.png',
+            id: 6,
+            stock: 100
+        },
+        {
+            _id: ObjectId("61ba62de5ef5ad85d9b18cd4"),
+            title: 'Globo Terraqueo tipo 3',
+            price: 2860,
+            thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-256.png',
+            id: 7,
+            stock: 100
+        },
+        {
+            _id: ObjectId("61ba62de5ef5ad85d9b18cd5"),
+            title: 'Calculadora tipo 1',
+            price: 3350,
+            thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png',
+            id: 8,
+            stock: 100
+        },
+        {
+            _id: ObjectId("61ba62de5ef5ad85d9b18cd6"),
+            title: 'Calculadora tipo 2',
+            price: 4320,
+            thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png',
+            id: 9,
+            stock: 0
+        },
+        {
+            _id: ObjectId("61ba62de5ef5ad85d9b18cd7"),
+            title: 'Calculadora tipo 3',
+            price: 4990,
+            thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png',
+            id: 10,
+            stock: 0
+        }
+        ]
+        
+        ecommerce> db.productos.insertOne({ title: 'Escuadra tipo MEGA SUPER PREMIUN', price: 180, thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png', id: 12 })
+        MongoServerError: not authorized on ecommerce to execute command { insert: "productos", documents: [ { title: "Escuadra tipo MEGA SUPER PREMIUN", price: 180, thumbnail: "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png", id: 12, _id: ObjectId('61bb3613761573fa632e825b') } ], ordered: true, lsid: { id: UUID("fbe4c86e-41e8-4aa1-a3e5-a0f8b4fc38c2") }, $db: "ecommerce" }
