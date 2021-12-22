@@ -1,0 +1,16 @@
+{
+  "name": "007-proyecto_final_entrega_1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ."
+  },
+  "keywords": [],
+  "author": "Néstor Cubilla",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
