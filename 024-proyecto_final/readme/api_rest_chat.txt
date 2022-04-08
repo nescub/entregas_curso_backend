@@ -1,0 +1,11 @@
+####################################################################
+############ Obtencion de chats de un usuario por mail #############
+
+METHOD: GET
+URL: http://[server_host]:[puerto]/api/chat/[email]
+
+Ejemplo:
+
+    METHOD: GET
+    URL: http://localhost:50300/api/chat/pedro.rodriguez@gmail.com
+ 

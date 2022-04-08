@@ -1,0 +1,25 @@
+<h2 style="color:crimson;">Parametros del Sistema</h2>
+
+{{#if parametersExist}}
+    <div class="table-responsive">
+        <table class="table table-dark">
+            <tr style="color: yellow;">
+                <th>CLAVE</th>
+                <th>VALOR</th>
+            </tr>
+            {{#each parameters}}
+                <tr>
+                <td>
+                    {{this.key}}
+                </td>
+                <td>
+                    {{this.value}}
+                </td>
+            </tr>
+            {{/each}}
+        </table>
+    </div>
+{{else}}
+    <h3 class="alert alert-danger">No hay parametros definidos</h3>
+{{/if}}
+<br>

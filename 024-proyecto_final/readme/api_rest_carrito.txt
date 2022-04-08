@@ -1,0 +1,90 @@
+####################################################################
+#################### Creacion de carrito (vacio) ###################
+
+METHOD: POST
+URL: http://[server_host]:[puerto]/api/carrito
+HEADERS:
+    Authorization: Bearer [token]
+
+Ejemplo:
+
+    METHOD: POST
+    URL: http://localhost:50300/api/carrito
+    HEADERS:
+        Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjo3LCJ1c3VhcmlvIjoicGVkcml0byIsInBhc3N3b3JkIjoiJDJiJDEwJEdoVzJoY1kuamVnL2ptMU9xZkZqcy5hNTBNaGtVU1BqUk9QUk9aaWF6UUdyR2lCNER0UXNXIiwibm9tYnJlIjoiUGVkcm8iLCJhcGVsbGlkbyI6IlJvZHJpZ3VleiIsImRpcmVjY2lvbiI6Ikx1Y2VybyAxNDU4NywgSXR1emFpbmdvLCBCcyBBcyIsImVtYWlsIjoicGVkcm8ucm9kcmlndWV6QGdtYWlsLmNvbSIsImFkbWluIjp0cnVlfSwiaWF0IjoxNjQ5MzczNjQ4LCJleHAiOjE2NDkzNzQ1NDh9.IbQPFEhgMDfqs6HUAv79ojhxfV4PoCe9CqVz9bNSyZI
+   
+####################################################################
+####################### Obtener un carrito #########################
+
+METHOD: GET
+URL: http://[server_host]:[puerto]/api/carrito/[id]
+HEADERS:
+    Authorization: Bearer [token]
+
+Ejemplo:
+
+    METHOD: GET
+    URL: http://localhost:50300/api/carrito/3
+    HEADERS:
+        Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjo3LCJ1c3VhcmlvIjoicGVkcml0byIsInBhc3N3b3JkIjoiJDJiJDEwJEdoVzJoY1kuamVnL2ptMU9xZkZqcy5hNTBNaGtVU1BqUk9QUk9aaWF6UUdyR2lCNER0UXNXIiwibm9tYnJlIjoiUGVkcm8iLCJhcGVsbGlkbyI6IlJvZHJpZ3VleiIsImRpcmVjY2lvbiI6Ikx1Y2VybyAxNDU4NywgSXR1emFpbmdvLCBCcyBBcyIsImVtYWlsIjoicGVkcm8ucm9kcmlndWV6QGdtYWlsLmNvbSIsImFkbWluIjp0cnVlfSwiaWF0IjoxNjQ5MzczNjQ4LCJleHAiOjE2NDkzNzQ1NDh9.IbQPFEhgMDfqs6HUAv79ojhxfV4PoCe9CqVz9bNSyZI
+
+####################################################################
+################# Obtener productos de un carrito  #################
+
+METHOD: GET
+URL: http://[server_host]:[puerto]/api/carrito/[id]/productos
+HEADERS:
+    Authorization: Bearer [token]
+
+Ejemplo:
+
+    METHOD: GET
+    URL: http://localhost:50300/api/carrito/3/productos
+    HEADERS:
+        Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjo3LCJ1c3VhcmlvIjoicGVkcml0byIsInBhc3N3b3JkIjoiJDJiJDEwJEdoVzJoY1kuamVnL2ptMU9xZkZqcy5hNTBNaGtVU1BqUk9QUk9aaWF6UUdyR2lCNER0UXNXIiwibm9tYnJlIjoiUGVkcm8iLCJhcGVsbGlkbyI6IlJvZHJpZ3VleiIsImRpcmVjY2lvbiI6Ikx1Y2VybyAxNDU4NywgSXR1emFpbmdvLCBCcyBBcyIsImVtYWlsIjoicGVkcm8ucm9kcmlndWV6QGdtYWlsLmNvbSIsImFkbWluIjp0cnVlfSwiaWF0IjoxNjQ5MzczNjQ4LCJleHAiOjE2NDkzNzQ1NDh9.IbQPFEhgMDfqs6HUAv79ojhxfV4PoCe9CqVz9bNSyZI
+
+####################################################################
+#################### Agregar producto a carrito ####################
+
+METHOD: POST
+URL: http://[server_host]:[puerto]/api/carrito/[id_carrito]/productos/[id_producto]/[cantidad_producto]
+HEADERS:
+    Authorization: Bearer [token]
+
+Ejemplo:
+
+    METHOD: POST
+    URL: http://localhost:50300/api/carrito/3/productos/2/56
+    HEADERS:
+        Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjo3LCJ1c3VhcmlvIjoicGVkcml0byIsInBhc3N3b3JkIjoiJDJiJDEwJEdoVzJoY1kuamVnL2ptMU9xZkZqcy5hNTBNaGtVU1BqUk9QUk9aaWF6UUdyR2lCNER0UXNXIiwibm9tYnJlIjoiUGVkcm8iLCJhcGVsbGlkbyI6IlJvZHJpZ3VleiIsImRpcmVjY2lvbiI6Ikx1Y2VybyAxNDU4NywgSXR1emFpbmdvLCBCcyBBcyIsImVtYWlsIjoicGVkcm8ucm9kcmlndWV6QGdtYWlsLmNvbSIsImFkbWluIjp0cnVlfSwiaWF0IjoxNjQ5MzczNjQ4LCJleHAiOjE2NDkzNzQ1NDh9.IbQPFEhgMDfqs6HUAv79ojhxfV4PoCe9CqVz9bNSyZI
+   
+####################################################################
+#################### Eliminar producto de carrito ##################
+
+METHOD: DELETE
+URL: http://[server_host]:[puerto]/api/carrito/[id_carrito]/productos/[id_producto]
+HEADERS:
+    Authorization: Bearer [token]
+
+Ejemplo:
+
+    METHOD: DELETE
+    URL: http://localhost:50300/api/carrito/2/productos/2
+    HEADERS:
+        Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjo3LCJ1c3VhcmlvIjoicGVkcml0byIsInBhc3N3b3JkIjoiJDJiJDEwJEdoVzJoY1kuamVnL2ptMU9xZkZqcy5hNTBNaGtVU1BqUk9QUk9aaWF6UUdyR2lCNER0UXNXIiwibm9tYnJlIjoiUGVkcm8iLCJhcGVsbGlkbyI6IlJvZHJpZ3VleiIsImRpcmVjY2lvbiI6Ikx1Y2VybyAxNDU4NywgSXR1emFpbmdvLCBCcyBBcyIsImVtYWlsIjoicGVkcm8ucm9kcmlndWV6QGdtYWlsLmNvbSIsImFkbWluIjp0cnVlfSwiaWF0IjoxNjQ5MzczNjQ4LCJleHAiOjE2NDkzNzQ1NDh9.IbQPFEhgMDfqs6HUAv79ojhxfV4PoCe9CqVz9bNSyZI
+
+####################################################################
+######################### Eliminar carrito #########################
+
+METHOD: DELETE
+URL: http://[server_host]:[puerto]/api/carrito/[id]
+HEADERS:
+    Authorization: Bearer [token]
+
+Ejemplo:
+
+    METHOD: DELETE
+    URL: http://localhost:50300/api/carrito/2
+    HEADERS:
+        Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjo3LCJ1c3VhcmlvIjoicGVkcml0byIsInBhc3N3b3JkIjoiJDJiJDEwJEdoVzJoY1kuamVnL2ptMU9xZkZqcy5hNTBNaGtVU1BqUk9QUk9aaWF6UUdyR2lCNER0UXNXIiwibm9tYnJlIjoiUGVkcm8iLCJhcGVsbGlkbyI6IlJvZHJpZ3VleiIsImRpcmVjY2lvbiI6Ikx1Y2VybyAxNDU4NywgSXR1emFpbmdvLCBCcyBBcyIsImVtYWlsIjoicGVkcm8ucm9kcmlndWV6QGdtYWlsLmNvbSIsImFkbWluIjp0cnVlfSwiaWF0IjoxNjQ5MzczNjQ4LCJleHAiOjE2NDkzNzQ1NDh9.IbQPFEhgMDfqs6HUAv79ojhxfV4PoCe9CqVz9bNSyZI
+

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Ecommerce</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/chat.js"></script>
+
+    <link rel="icon" href="data:,">
+  </head>
+
+  <body>
+    <div class="container mt-3">
+      <div class="jumbotron">
+        <h1 style="color:blue;">Centro de Mensajes</h1>
+        <br>
+
+        <div class="form-group">
+            <input id="message_dir_email" class="form-control" type="text" name="message_dir_email" placeholder="Ingresá tu dirección de email">
+        </div>
+        <hr>
+
+        <div id='MessageList'></div>
+        <br>
+
+        <div class="form-group">
+            <input id="message_text" class="form-control" type="text" name="message_text" placeholder="Ingresá un mensaje">
+            <a class="btn btn-success mt-3 mb-5" href='javascript:;' onclick="sendMessage();" role="button">Enviar</a>
+        </div>
+      </div>
+    </div>
+  </body>
+  
+</html>

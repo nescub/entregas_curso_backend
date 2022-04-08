@@ -1,0 +1,86 @@
+####################################################################
+#################### Creacion de usuario ###########################
+
+METHOD: POST
+URL: http://[server_host]:[puerto]/api/usuarios
+BODY: [JSON]
+
+Ejemplo:
+
+    METHOD: POST
+    URL: http://localhost:50300/api/usuarios
+    BODY: 
+        {
+            "usuario": "juansito",
+            "password": "1234",
+            "nombre": "Juan",
+            "apellido": "Gomez",
+            "direccion": "Peredo 14789, Ituzaingo, Bs As",
+            "email": "juan.gomez@hotmail.com",
+            "admin": false
+        }
+
+####################################################################
+#################### Obtencion de usuario ##########################
+
+METHOD: GET
+URL: http://[server_host]:[puerto]/api/usuarios/[usuario]
+HEADERS:
+    Authorization: Bearer [token]
+
+Ejemplo:
+
+    METHOD: GET
+    URL: http://localhost:50300/api/usuarios/juansito
+    HEADERS:
+        Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoyLCJ1c3VhcmlvIjoicGVkcml0byIsInBhc3N3b3JkIjoiJDJiJDEwJHlOMlE5Z1lURWJha1dBYnVTTDdFaU94bjZnSDlTdUE2YUlGbDY5YXRUcTRuRkpDb2U0SndLIiwibm9tYnJlIjoiUGVkcm8iLCJhcGVsbGlkbyI6IlJvZHJpZ3VleiIsImRpcmVjY2lvbiI6Ikx1Y2VybyAxNDU4NywgSXR1emFpbmdvLCBCcyBBcyIsImVtYWlsIjoicGVkcm8ucm9kcmlndWV6QGdtYWlsLmNvbSIsImFkbWluIjp0cnVlfSwiaWF0IjoxNjQ5MzM2ODk4LCJleHAiOjE2NDkzMzc3OTh9.saAuOcN_NYyrwqEXCKIE-vf1muNi78s99n2tE7Jtgsg
+
+####################################################################
+#################### Eliminacion de usuario ########################
+
+METHOD: DELETE
+URL: http://[server_host]:[puerto]/api/usuarios/[usuario]
+HEADERS:
+    Authorization: Bearer [token]
+
+Ejemplo:
+
+    METHOD: DELETE
+    URL: http://localhost:50300/api/usuarios/josesito
+    HEADERS:
+        Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoyLCJ1c3VhcmlvIjoicGVkcml0byIsInBhc3N3b3JkIjoiJDJiJDEwJHlOMlE5Z1lURWJha1dBYnVTTDdFaU94bjZnSDlTdUE2YUlGbDY5YXRUcTRuRkpDb2U0SndLIiwibm9tYnJlIjoiUGVkcm8iLCJhcGVsbGlkbyI6IlJvZHJpZ3VleiIsImRpcmVjY2lvbiI6Ikx1Y2VybyAxNDU4NywgSXR1emFpbmdvLCBCcyBBcyIsImVtYWlsIjoicGVkcm8ucm9kcmlndWV6QGdtYWlsLmNvbSIsImFkbWluIjp0cnVlfSwiaWF0IjoxNjQ5MzM2ODk4LCJleHAiOjE2NDkzMzc3OTh9.saAuOcN_NYyrwqEXCKIE-vf1muNi78s99n2tE7Jtgsg
+
+IMPORTANTE: el usuario con el cual se autentica (via token) debe contar con permisos de admin para poder ejecutar esta api (admin = true)
+
+####################################################################
+########################## JSONs bodys ejemplos ####################
+
+{
+    "usuario": "juansito",
+    "password": "1234",
+    "nombre": "Juan",
+    "apellido": "Gomez",
+    "direccion": "Peredo 14789, Ituzaingo, Bs As",
+    "email": "juan.gomez@hotmail.com",
+    "admin": false
+}
+
+{
+    "usuario": "pedrito",
+    "password": "5678",
+    "nombre": "Pedro",
+    "apellido": "Rodriguez",
+    "direccion": "Lucero 14587, Ituzaingo, Bs As",
+    "email": "pedro.rodriguez@gmail.com",
+    "admin": true
+}
+
+{
+    "usuario": "josesito",
+    "password": "9012",
+    "nombre": "Jose",
+    "apellido": "Perez",
+    "direccion": "San Martin 658, Moron, Bs As",
+    "email": "jose.perez@yahoo.com",
+    "admin": false
+}

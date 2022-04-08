@@ -1,0 +1,130 @@
+####################################################################
+#################### Creacion de producto ##########################
+
+METHOD: POST
+URL: http://[server_host]:[puerto]/api/productos
+HEADERS:
+    Authorization: Bearer [token]
+BODY: [JSON]
+
+Ejemplo:
+
+    METHOD: POST
+    URL: http://localhost:50300/api/productos
+    HEADERS:
+        Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjo3LCJ1c3VhcmlvIjoicGVkcml0byIsInBhc3N3b3JkIjoiJDJiJDEwJEdoVzJoY1kuamVnL2ptMU9xZkZqcy5hNTBNaGtVU1BqUk9QUk9aaWF6UUdyR2lCNER0UXNXIiwibm9tYnJlIjoiUGVkcm8iLCJhcGVsbGlkbyI6IlJvZHJpZ3VleiIsImRpcmVjY2lvbiI6Ikx1Y2VybyAxNDU4NywgSXR1emFpbmdvLCBCcyBBcyIsImVtYWlsIjoicGVkcm8ucm9kcmlndWV6QGdtYWlsLmNvbSIsImFkbWluIjp0cnVlfSwiaWF0IjoxNjQ5MzczNjQ4LCJleHAiOjE2NDkzNzQ1NDh9.IbQPFEhgMDfqs6HUAv79ojhxfV4PoCe9CqVz9bNSyZI
+    BODY: 
+        {
+            "nombre":"escuadra",
+            "descripcion": "escuadra milimetrica profesional",
+            "codigo":"ESC0001",
+            "foto": "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png",
+            "precio": 125.50,
+            "stock": 325
+        }
+
+IMPORTANTE: el usuario con el cual se autentica (via token) debe contar con permisos de admin para poder ejecutar esta api (admin = true)
+
+####################################################################
+#################### Obtener todos los productos ###################
+
+METHOD: GET
+URL: http://[server_host]:[puerto]/api/productos
+HEADERS:
+    Authorization: Bearer [token]
+
+Ejemplo:
+
+    METHOD: GET
+    URL: http://localhost:50300/api/productos
+    HEADERS:
+        Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjo3LCJ1c3VhcmlvIjoicGVkcml0byIsInBhc3N3b3JkIjoiJDJiJDEwJEdoVzJoY1kuamVnL2ptMU9xZkZqcy5hNTBNaGtVU1BqUk9QUk9aaWF6UUdyR2lCNER0UXNXIiwibm9tYnJlIjoiUGVkcm8iLCJhcGVsbGlkbyI6IlJvZHJpZ3VleiIsImRpcmVjY2lvbiI6Ikx1Y2VybyAxNDU4NywgSXR1emFpbmdvLCBCcyBBcyIsImVtYWlsIjoicGVkcm8ucm9kcmlndWV6QGdtYWlsLmNvbSIsImFkbWluIjp0cnVlfSwiaWF0IjoxNjQ5MzczNjQ4LCJleHAiOjE2NDkzNzQ1NDh9.IbQPFEhgMDfqs6HUAv79ojhxfV4PoCe9CqVz9bNSyZI
+
+####################################################################
+#################### Obtener un producto por id ####################
+
+METHOD: GET
+URL: http://[server_host]:[puerto]/api/productos/[id]
+HEADERS:
+    Authorization: Bearer [token]
+
+Ejemplo:
+
+    METHOD: GET
+    URL: http://localhost:50300/api/productos/3
+    HEADERS:
+        Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjo3LCJ1c3VhcmlvIjoicGVkcml0byIsInBhc3N3b3JkIjoiJDJiJDEwJEdoVzJoY1kuamVnL2ptMU9xZkZqcy5hNTBNaGtVU1BqUk9QUk9aaWF6UUdyR2lCNER0UXNXIiwibm9tYnJlIjoiUGVkcm8iLCJhcGVsbGlkbyI6IlJvZHJpZ3VleiIsImRpcmVjY2lvbiI6Ikx1Y2VybyAxNDU4NywgSXR1emFpbmdvLCBCcyBBcyIsImVtYWlsIjoicGVkcm8ucm9kcmlndWV6QGdtYWlsLmNvbSIsImFkbWluIjp0cnVlfSwiaWF0IjoxNjQ5MzczNjQ4LCJleHAiOjE2NDkzNzQ1NDh9.IbQPFEhgMDfqs6HUAv79ojhxfV4PoCe9CqVz9bNSyZI
+
+####################################################################
+#################### actualizar un producto ########################
+
+METHOD: PUT
+URL: http://[server_host]:[puerto]/api/productos/[id]
+HEADERS:
+    Authorization: Bearer [token]
+BODY: [JSON]
+
+Ejemplo:
+
+    METHOD: PUT
+    URL: http://localhost:50300/api/productos/1
+    HEADERS:
+        Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjo3LCJ1c3VhcmlvIjoicGVkcml0byIsInBhc3N3b3JkIjoiJDJiJDEwJEdoVzJoY1kuamVnL2ptMU9xZkZqcy5hNTBNaGtVU1BqUk9QUk9aaWF6UUdyR2lCNER0UXNXIiwibm9tYnJlIjoiUGVkcm8iLCJhcGVsbGlkbyI6IlJvZHJpZ3VleiIsImRpcmVjY2lvbiI6Ikx1Y2VybyAxNDU4NywgSXR1emFpbmdvLCBCcyBBcyIsImVtYWlsIjoicGVkcm8ucm9kcmlndWV6QGdtYWlsLmNvbSIsImFkbWluIjp0cnVlfSwiaWF0IjoxNjQ5MzczNjQ4LCJleHAiOjE2NDkzNzQ1NDh9.IbQPFEhgMDfqs6HUAv79ojhxfV4PoCe9CqVz9bNSyZI
+    BODY: 
+        {
+            "nombre":"escuadra premium",
+            "descripcion": "escuadra milimetrica profesional metalica",
+            "codigo":"ESC0002",
+            "foto": "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png",
+            "precio": 550.83,
+            "stock": 140
+        }
+
+IMPORTANTE: el usuario con el cual se autentica (via token) debe contar con permisos de admin para poder ejecutar esta api (admin = true)
+
+####################################################################
+#################### Eliminar un producto ##########################
+
+METHOD: DELETE
+URL: http://[server_host]:[puerto]/api/productos/[id]
+HEADERS:
+    Authorization: Bearer [token]
+
+Ejemplo:
+
+    METHOD: DELETE
+    URL: http://localhost:50300/api/productos/1
+    HEADERS:
+        Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjo3LCJ1c3VhcmlvIjoicGVkcml0byIsInBhc3N3b3JkIjoiJDJiJDEwJEdoVzJoY1kuamVnL2ptMU9xZkZqcy5hNTBNaGtVU1BqUk9QUk9aaWF6UUdyR2lCNER0UXNXIiwibm9tYnJlIjoiUGVkcm8iLCJhcGVsbGlkbyI6IlJvZHJpZ3VleiIsImRpcmVjY2lvbiI6Ikx1Y2VybyAxNDU4NywgSXR1emFpbmdvLCBCcyBBcyIsImVtYWlsIjoicGVkcm8ucm9kcmlndWV6QGdtYWlsLmNvbSIsImFkbWluIjp0cnVlfSwiaWF0IjoxNjQ5MzczNjQ4LCJleHAiOjE2NDkzNzQ1NDh9.IbQPFEhgMDfqs6HUAv79ojhxfV4PoCe9CqVz9bNSyZI
+
+IMPORTANTE: el usuario con el cual se autentica (via token) debe contar con permisos de admin para poder ejecutar esta api (admin = true)
+
+####################################################################
+########################## JSONs bodys ejemplos ####################
+
+{
+    "nombre":"escuadra",
+    "descripcion": "escuadra milimetrica profesional",
+    "codigo":"ESC0001",
+    "foto": "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png",
+    "precio": 125.50,
+    "stock": 325
+}
+
+{
+    "nombre":"globo terraqueo",
+    "descripcion": "globo terraqueo de plastico",
+    "codigo":"GLO0001",
+    "foto": "https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-256.png",
+    "precio": 3520.75,
+    "stock": 50
+}
+
+{
+    "nombre":"calculadora",
+    "descripcion": "calculado cientifica",
+    "codigo":"CAL0001",
+    "foto": "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png",
+    "precio": 4999,
+    "stock": 45
+}

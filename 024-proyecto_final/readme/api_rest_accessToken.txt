@@ -1,0 +1,19 @@
+####################################################################
+#################### Obtención de access token #####################
+
+METHOD: POST
+URL: http://[server_host]:[puerto]/api/accessToken
+BODY: [JSON]
+
+Ejemplo:
+
+    METHOD: POST
+    URL: http://localhost:50300/api/accessToken
+    BODY: 
+        {
+            "email": "juan.gomez@hotmail.com",
+            "password": "1234"
+        }
+
+####################################################################
+

@@ -1,0 +1,14 @@
+####################################################################
+########### Obtención de parametros de configuracion ###############
+
+METHOD: GET
+URL: http://[server_host]:[puerto]/api/config
+
+Ejemplo:
+
+    METHOD: GET
+    URL: http://localhost:50300/api/config
+
+
+####################################################################
+

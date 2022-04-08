@@ -1,0 +1,51 @@
+####################################################################
+#################### Creacion de orden de compra ###################
+
+METHOD: POST
+URL: http://[server_host]:[puerto]/api/ordenes
+HEADERS:
+    Authorization: Bearer [token]
+BODY: [JSON]
+
+Ejemplo:
+
+    METHOD: POST
+    URL: http://localhost:50300/api/ordenes
+    HEADERS:
+        Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjo3LCJ1c3VhcmlvIjoicGVkcml0byIsInBhc3N3b3JkIjoiJDJiJDEwJEdoVzJoY1kuamVnL2ptMU9xZkZqcy5hNTBNaGtVU1BqUk9QUk9aaWF6UUdyR2lCNER0UXNXIiwibm9tYnJlIjoiUGVkcm8iLCJhcGVsbGlkbyI6IlJvZHJpZ3VleiIsImRpcmVjY2lvbiI6Ikx1Y2VybyAxNDU4NywgSXR1emFpbmdvLCBCcyBBcyIsImVtYWlsIjoicGVkcm8ucm9kcmlndWV6QGdtYWlsLmNvbSIsImFkbWluIjp0cnVlfSwiaWF0IjoxNjQ5MzczNjQ4LCJleHAiOjE2NDkzNzQ1NDh9.IbQPFEhgMDfqs6HUAv79ojhxfV4PoCe9CqVz9bNSyZI
+    BODY:
+        {
+	        "cartId": 3,
+	        "direccion_entrega":"Rivadavia 1578 2do A, Itu, Bs As"
+        }
+
+####################################################################
+####################### Obtener un orden de compra #################
+
+METHOD: GET
+URL: http://[server_host]:[puerto]/api/ordenes/[id]
+HEADERS:
+    Authorization: Bearer [token]
+
+Ejemplo:
+
+    METHOD: GET
+    URL: http://localhost:50300/api/ordenes/1
+    HEADERS:
+        Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjo3LCJ1c3VhcmlvIjoicGVkcml0byIsInBhc3N3b3JkIjoiJDJiJDEwJEdoVzJoY1kuamVnL2ptMU9xZkZqcy5hNTBNaGtVU1BqUk9QUk9aaWF6UUdyR2lCNER0UXNXIiwibm9tYnJlIjoiUGVkcm8iLCJhcGVsbGlkbyI6IlJvZHJpZ3VleiIsImRpcmVjY2lvbiI6Ikx1Y2VybyAxNDU4NywgSXR1emFpbmdvLCBCcyBBcyIsImVtYWlsIjoicGVkcm8ucm9kcmlndWV6QGdtYWlsLmNvbSIsImFkbWluIjp0cnVlfSwiaWF0IjoxNjQ5MzczNjQ4LCJleHAiOjE2NDkzNzQ1NDh9.IbQPFEhgMDfqs6HUAv79ojhxfV4PoCe9CqVz9bNSyZI
+
+####################################################################
+################## Eliminar orden de compra ########################
+
+METHOD: DELETE
+URL: http://[server_host]:[puerto]/api/ordenes/[id]
+HEADERS:
+    Authorization: Bearer [token]
+
+Ejemplo:
+
+    METHOD: DELETE
+    URL: http://localhost:50300/api/ordenes/2
+    HEADERS:
+        Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjo3LCJ1c3VhcmlvIjoicGVkcml0byIsInBhc3N3b3JkIjoiJDJiJDEwJEdoVzJoY1kuamVnL2ptMU9xZkZqcy5hNTBNaGtVU1BqUk9QUk9aaWF6UUdyR2lCNER0UXNXIiwibm9tYnJlIjoiUGVkcm8iLCJhcGVsbGlkbyI6IlJvZHJpZ3VleiIsImRpcmVjY2lvbiI6Ikx1Y2VybyAxNDU4NywgSXR1emFpbmdvLCBCcyBBcyIsImVtYWlsIjoicGVkcm8ucm9kcmlndWV6QGdtYWlsLmNvbSIsImFkbWluIjp0cnVlfSwiaWF0IjoxNjQ5MzczNjQ4LCJleHAiOjE2NDkzNzQ1NDh9.IbQPFEhgMDfqs6HUAv79ojhxfV4PoCe9CqVz9bNSyZI
+
